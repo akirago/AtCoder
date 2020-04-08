@@ -8,4 +8,4 @@ for i in range(N):
         distances.append(A[i] - A[i - 1])
 distances.sort()
 distances.pop(N - 1)
-print(sum(distances))
+print(summary(distances))

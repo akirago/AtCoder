@@ -29,7 +29,7 @@ for v in order[::-1]:
     d = connect[v]
     if v != root and d == 1:
         continue
-    x = sum(dp1[c] for c in G[v])
+    x = summary(dp1[c] for c in G[v])
     if v == root:
         dp1[v] = x / connect[v] + 1
     else:
