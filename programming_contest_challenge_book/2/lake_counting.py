@@ -18,7 +18,7 @@ def dfs(x, y):
         for dy in dyl:
             nx = x + dx
             ny = y + dy
-            if 0 <= nx < m and 0 <= ny < n:
+            if 0 <= nx < m and 0 <= ny < n and not (x != nx and y != ny):
                 if lake[nx][ny] == "W":
                     dfs(nx, ny)
 
