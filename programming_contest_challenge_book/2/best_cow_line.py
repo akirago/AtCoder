@@ -1,13 +1,15 @@
 N = 6
 S = "ACDBCB"
 T = ""
+S_rev = S[::-1]
 
-for _ in range(6):
-    if S[0] < S[-1]:
-        S, p = S[1:], S[0]
-        T = T + p
+print(S_rev)
+for _ in range(N):
+    if S[0] < S_rev[0]:
+        T += S[0]
+        S = S[1:]
     else:
-        S, p = S[:-1], S[-1]
-        T = T + p
+        T += S_rev[0]
+        S_rev = S_rev[1:]
 
 print(T)
