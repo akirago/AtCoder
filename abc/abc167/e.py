@@ -1,14 +1,19 @@
+import sys
 N, M, K = map(int, input().split())
 
-dp = [[0] * (K + 2) for _ in range(N)]
+mod = 998244353
 
-x = 998244353
-dp[0][0] = M
-for j in range(1, N):
-    for i in range(K + 1):
-        dp[j][i + 1] += dp[j - 1][i] % x
-        dp[j][i] += dp[j - 1][i] * (M - 1) % x
-ans = 0
-for i in range(K + 1):
-    ans += dp[N - 1][i] % x
+if N == 1:
+    print(M)
+    sys.exit()
+
+
+t = M * (M - 1) ** (N - 1)
+ans = t % mod
+for i in range(K):
+    t = t / (M - 1)
+    t = t * (N - i - 1) / (1 + i)
+    ans += t
+    ans = ans % mod
+
 print(ans)
