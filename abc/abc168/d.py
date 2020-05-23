@@ -1,5 +1,24 @@
-N, M = map(int, input().split())
+import sys
 
+input = sys.stdin.readline
+from collections import *
+
+
+def bfs():
+    q = deque([1])
+    dist = [0] * (N + 1)
+    while q:
+        v = q.popleft()
+
+        for nv in G[v]:
+            if dist[nv] == 0:
+                dist[nv] = v
+                q.append(nv)
+
+    return dist
+
+
+N, M = map(int, input().split())
 G = [[] for _ in range(N + 1)]
 
 for _ in range(M):
@@ -7,16 +26,7 @@ for _ in range(M):
     G[a].append(b)
     G[b].append(a)
 
-dist = [-1] * (N + 1)
-
-dist[1] = 0
-q = [1]
-while q.__len__():
-    now = q.pop(0)
-    for i in G[now]:
-        if dist[i] == -1:
-            q.append(i)
-            dist[i] = now
+dist = bfs()
 
 print("Yes")
 for i in range(2, N + 1):
