@@ -66,7 +66,14 @@ def ST(): return input().replace('\n', '')
 
 
 def main():
-    print()
+    unb = 1
+    ma0 = (0, 0)
+    ma1 = (0, 0)
+    for s in input():
+        if s == '0':
+            ma0[0] += 1
+            ma0[1] += 1
+            ma1[0] += 0
 
 
 if __name__ == '__main__':

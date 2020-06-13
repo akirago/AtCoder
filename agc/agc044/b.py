@@ -66,7 +66,36 @@ def ST(): return input().replace('\n', '')
 
 
 def main():
-    print()
+    N = I()
+    P = MI()
+    emp = [[1] * (N + 1) for _ in range(N + 1)]
+    dp = [[inf] * (N + 1) for _ in range(N + 1)]
+    dx = [1, 0, -1, 0]
+    dy = [0, 1, 0, -1]
+    for x in range(1, N + 1):
+        for y in range(1, N + 1):
+            ax = min(x - 1, N - x)
+            ay = min(y - 1, N - y)
+            dp[x][y] = min(ax, ay)
+    ans = 0
+    for i in P:
+        y = (i % N)
+        x = (i // N) + 1
+        if y == 0:
+            y += N
+            x -= 1
+        ans += dp[x][y]
+        emp[x][y] = 0
+        q = {(x, y)}
+        while q:
+            now = q.pop()
+            for j in range(len(dx)):
+                nx = now[0] + dx[j]
+                ny = now[1] + dy[j]
+                if 1 <= nx <= N and 1 <= ny <= N and dp[nx][ny] == dp[now[0]][now[1]] + 1 + emp[now[0]][now[1]]:
+                    dp[nx][ny] -= 1
+                    q.add((nx, ny))
+    print(ans)
 
 
 if __name__ == '__main__':

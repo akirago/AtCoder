@@ -66,7 +66,30 @@ def ST(): return input().replace('\n', '')
 
 
 def main():
-    print()
+    N = int(input())
+    A = list(input().rstrip())
+    def two_num(x):
+        res = 0
+        while x % 2 == 0:
+            x //= 2
+            res += 1
+        return res
+
+    C_twos = [0] * N
+    for i in range(1, N):
+        res = C_twos[i - 1] + two_num(N - i) - two_num(i)
+        C_twos[i] = res
+
+    if '2' in A:
+        ans = 0
+        for i in range(N):
+            ans ^= (int(A[i]) - 1) & 1 * (C_twos[i] == 0)
+        print(ans)
+    else:
+        ans = 0
+        for i in range(N):
+            ans ^= (int(A[i]) - 1) // 2 * (C_twos[i] == 0)
+        print(ans * 2)
 
 
 if __name__ == '__main__':

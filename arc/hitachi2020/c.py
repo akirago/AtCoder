@@ -1,3 +1,4 @@
+from collections import deque
 N = int(input())
 G = [[] for _ in range(N + 1)]
 dist = [-1 for _ in range(N + 1)]
@@ -15,11 +16,11 @@ for i in range(1, N + 1):
         two.append(i)
     else:
         zero.append(i)
-q = [1]
+q = deque([1])
 dist[1] = 0
 
 while q.__len__() != 0:
-    s = q.pop(0)
+    s = q.popleft()
     for i in G[s]:
         if dist[i] == -1:
             q.append(i)

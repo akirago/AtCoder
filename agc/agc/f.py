@@ -68,6 +68,5 @@ def ST(): return input().replace('\n', '')
 def main():
     print()
 
-
 if __name__ == '__main__':
     main()

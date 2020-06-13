@@ -64,9 +64,21 @@ def F(): return float(input())
 
 def ST(): return input().replace('\n', '')
 
+def test():
+    N = I()
+    A = MI()
+    S = input()
+    P = set(0)
+    for i in range(N):
+
+
+
 
 def main():
-    print()
+    T = I()
+    for _ in range(T):
+        print(test())
+
 
 
 if __name__ == '__main__':

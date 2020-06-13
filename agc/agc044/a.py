@@ -66,7 +66,10 @@ def ST(): return input().replace('\n', '')
 
 
 def main():
-    print()
+    T = I()
+    for _ in range(T):
+        N,A,B,C,D = MI()
+
 
 
 if __name__ == '__main__':
