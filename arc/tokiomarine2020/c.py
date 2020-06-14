@@ -1,6 +1,6 @@
 import sys
 N, K = map(int, input().split())
-if N < 2 ** K - 1:
+if K > 42:
     print(" ".join(map(str, [N] * N)))
     sys.exit()
 A = [int(i) for i in input().split()]
@@ -11,15 +11,11 @@ for i in range(N):
 for i in range(1, K+1,1):
     B = [0] * N
     for j in range(N):
-        if DP[i-1][j] == 0: continue
-        pl, mi = min(j + DP[i-1][j], N-2), max(j - DP[i-1][j], 0)
+        pl, mi = min(j + DP[i-1][j], N-1), max(j - DP[i-1][j], 0)
         B[mi] += 1
-        B[pl + 1] -= 1
-        print(j, B)
-    print(B)
+        if pl + 1 < N:
+            B[pl + 1] -= 1
     for j in range(1, N):
         B[j] += B[j-1]
-    for j in range(N):
-        B[j] += 1
     DP[i] = B
 print(" ".join(map(str, DP[K])))
