@@ -66,7 +66,8 @@ def ST(): return input().replace('\n', '')
 
 
 def main():
-
+    a = I()
+    print(a + a ** 2 + a ** 3)
 
 
 if __name__ == '__main__':

@@ -66,6 +66,22 @@ def ST(): return input().replace('\n', '')
 
 
 def main():
+    D = I()
+    c = LI()
+    s = LLIN(D)
+    lst = [0] * 26
+    total = 0
+    for i in range(D):
+        ans = int(input())-1
+        l = s[i]
+        for j in range(26):
+            lst[j] += c[j]
+        lst[ans] = 0
+        total += s[i][ans]
+        for li in lst:
+            total -= li
+        print(total)
+
 
 
 

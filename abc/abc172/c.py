@@ -66,8 +66,35 @@ def ST(): return input().replace('\n', '')
 
 
 def main():
-
-
+    N, M, K = MI()
+    A = LI()
+    B = LI()
+    ans = 0
+    total = 0
+    anow = -1
+    for a in A:
+        if a + total <= K:
+            ans += 1
+            total += a
+            anow += 1
+        else:
+            break
+    maxans = ans
+    for b in B:
+        total += b
+        isOver = False
+        while total > K:
+            if anow == -1:
+                isOver = True
+                break
+            total -= A[anow]
+            anow -= 1
+            ans -= 1
+        if isOver:
+            break
+        ans += 1
+        maxans = max(maxans, ans)
+    print(maxans)
 
 if __name__ == '__main__':
     main()

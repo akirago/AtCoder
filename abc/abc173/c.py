@@ -66,6 +66,37 @@ def ST(): return input().replace('\n', '')
 
 
 def main():
+    H, W, K = MI()
+    c = []
+    for _ in range(H):
+        x = []
+        for s in ST():
+            x.append(s)
+        c.append(x)
+    ans = 0
+    for i in range(2 ** (H + W)):
+        cc = deepcopy(c)
+        x = 0
+        z = 2 ** (H + W)
+        while z:
+            z = z >> 1
+            if z & i:
+                if x < H:
+                    for k in range(W):
+                        cc[x][k] = "."
+                else:
+                    xx = x - H
+                    for k in range(H):
+                        cc[k][xx] = "."
+            x += 1
+        total = 0
+        for x in range(H):
+            for y in range(W):
+                if cc[x][y] == "#":
+                    total += 1
+        if total == K:
+            ans += 1
+    print(ans)
 
 
 

@@ -66,7 +66,22 @@ def ST(): return input().replace('\n', '')
 
 
 def main():
-    print()
+    N = I()
+    A = LI()
+    Q = I()
+    AI = [0]*(10**5+1)
+    ans = 0
+    for a in A:
+        AI[a] += 1
+
+    for i in range(10 ** 5 + 1):
+        ans += i * AI[i]
+    for _ in range(Q):
+        B, C = MI()
+        ans = ans - B * AI[B] + C * AI[B]
+        AI[C] += AI[B]
+        AI[B] = 0
+        print(ans)
 
 
 if __name__ == '__main__':

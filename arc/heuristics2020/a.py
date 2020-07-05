@@ -66,6 +66,19 @@ def ST(): return input().replace('\n', '')
 
 
 def main():
+    D = I()
+    c = LI()
+    s = LLIN(D)
+    lst = [0] * 26
+    for i in range(D):
+        l = s[i]
+        for j in range(26):
+            lst[j] += c[j]
+            l[j] += lst[j]
+        ind = l.index(max(l))
+        print(ind + 1)
+        lst[ind] = 0
+
 
 
 

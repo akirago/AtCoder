@@ -66,8 +66,18 @@ def ST(): return input().replace('\n', '')
 
 
 def main():
-
-
+    N, M = MI()
+    ans = 1
+    for i in range(0, N):
+        ans *= M - i
+        ans %= mod
+    for i in range(0, N):
+        if i == 0:
+            ans *= M - 1
+        else:
+            ans *= M - i
+        ans %= mod
+    print(ans)
 
 if __name__ == '__main__':
     main()

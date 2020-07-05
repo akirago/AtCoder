@@ -66,7 +66,10 @@ def ST(): return input().replace('\n', '')
 
 
 def main():
-    print()
+    if input().isupper() :
+        print("A")
+    else:
+        print("a")
 
 
 if __name__ == '__main__':

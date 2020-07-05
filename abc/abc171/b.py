@@ -66,7 +66,13 @@ def ST(): return input().replace('\n', '')
 
 
 def main():
-    print()
+    N, K = MI()
+    p = LI()
+    p.sort()
+    ans = 0
+    for i in range(K):
+        ans += p[i]
+    print(ans)
 
 
 if __name__ == '__main__':

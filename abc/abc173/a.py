@@ -66,7 +66,7 @@ def ST(): return input().replace('\n', '')
 
 
 def main():
-
+    print((1000 - int(input()) % 1000) % 1000)
 
 
 if __name__ == '__main__':

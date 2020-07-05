@@ -66,7 +66,25 @@ def ST(): return input().replace('\n', '')
 
 
 def main():
-
+    N = I()
+    AC = 0
+    WA = 0
+    TLE = 0
+    RE = 0
+    for _ in range(N):
+        S = ST()
+        if S == "AC":
+            AC += 1
+        elif S == "WA":
+            WA += 1
+        elif S == "TLE":
+            TLE += 1
+        else:
+            RE += 1
+    print("AC x", AC)
+    print("WA ×", WA)
+    print("TLE ×", TLE)
+    print("RE ×", RE)
 
 
 if __name__ == '__main__':

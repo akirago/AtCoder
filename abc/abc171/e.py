@@ -66,7 +66,15 @@ def ST(): return input().replace('\n', '')
 
 
 def main():
-    print()
+    N = I()
+    a = LI()
+    ans = a[0]
+    for i in range(1,N):
+        ans ^= a[i]
+    ansl = []
+    for i in a:
+        ansl.append(i^ans)
+    print(" ".join(map(str, ansl)))
 
 
 if __name__ == '__main__':

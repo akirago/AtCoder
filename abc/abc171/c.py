@@ -1,4 +1,5 @@
 import sys
+import string
 
 sys.setrecursionlimit(10 ** 6)
 input = sys.stdin.readline
@@ -66,7 +67,21 @@ def ST(): return input().replace('\n', '')
 
 
 def main():
-    print()
+    N = I()
+    ans = []
+    alpha = string.ascii_lowercase
+    while N:
+        ans.append(alpha[(N-1)%26])
+        if N % 26 == 0:
+            N = N // 26 - 1
+        else:
+            N = N // 26
+    ans.reverse()
+    answ = ""
+    for a in ans:
+        answ += a
+    print(answ)
+
 
 
 if __name__ == '__main__':

@@ -1,5 +1,5 @@
 import sys
-
+import math
 sys.setrecursionlimit(10 ** 6)
 input = sys.stdin.readline
 from math import floor, sqrt, factorial, hypot, log  # log2ないｙｐ
@@ -66,8 +66,21 @@ def ST(): return input().replace('\n', '')
 
 
 def main():
-
-
+    N = I()
+    DP = [1] * (N + 1)
+    PP = [0] * (N + 1)
+    n = N
+    prime = [2]
+    limit = int(n ** 0.5)
+    data = [i + 1 for i in range(2, n, 2)]
+    while True:
+        p = data[0]
+        if limit <= p:
+            break
+        prime.append(p)
+        data = [e for e in data if e % p != 0]
+    prime = prime + data
+    print(prime)
 
 if __name__ == '__main__':
     main()

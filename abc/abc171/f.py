@@ -66,8 +66,11 @@ def ST(): return input().replace('\n', '')
 
 
 def main():
-    print()
-
+    K = I()
+    S = input()
+    ans = 26 ** (K + len(S))
+    ans %= mod
+    print(ans)
 
 if __name__ == '__main__':
     main()
